@@ -9,11 +9,10 @@ const User=require('./models/Users')
 mongoose.connect(process.env.mongo_connect)
 .then(()=>{
     console.log("Connected to database");
-    app.listen(3000,()=>{
-        console.log("listening to port 3000");
-    })
+    
     
 })
+
 .catch((err)=>{
     console.log("error connecting to db",err);
 })
@@ -43,3 +42,7 @@ const CreatePost=require('./routes/createPost')
 
 app.use("/",HomeRoute)
 app.use("/create-post",CreatePost)
+
+app.listen(3000,()=>{
+    console.log("listening to port 3000");
+})
