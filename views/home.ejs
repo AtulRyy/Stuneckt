@@ -12,100 +12,73 @@
 </head>
 
 <body class="bg-[#333333] flex justify-center">
-  <div class="mt-20 w-[80%]">
+  <div class="my-20 w-[80%]">
     <h2 class="text-[#CCCCCC] text-center font-semibold text-5xl">
-      Hey there, <span class="font-bold text-[#00FFFF]">Atul</span>
+      Hey there, <span class="font-bold text-[#00FFFF]"><%=mainUser.username%></span>
     </h2>
     <div class="w-full flex justify-center mt-10">
       <div class="bg-[#494949] w-[38%]  p-5 rounded-xl flex justify-between items-center">
         <h2 class="text-3xl text-white font-semibold">
           What's on your mind?
         </h2>
-        <a href="/create-post"><button class="bg-[#39FF14] p-3 rounded-xl font-bold text-xl"><i
+        <a href="/create-post/<%=mainUser._id%>"><button class="bg-[#39FF14] p-3 rounded-xl font-bold text-xl"><i
               class="fa-plus fa-solid mr-3"></i>Create a post</button>
         </a>
       </div>
 
     </div>
-    <div class="w-full h-screen  flex justify-between">
-      <div class="left-bar flex-1  flex justify-center  p-8 py-10">
+    <div class="w-full   flex justify-between">
+      <div class="left-bar flex-1 h-fit flex justify-center  p-8 py-10">
         <div class="sidebar w-full  rounded-xl bg-[#454545] pt-10 p-20 px-5">
           <h2 class="text-[#FFA500] text-2xl text-center font-semibold mb-7">
-            View User
+            View Profile
           </h2>
           <div class="users">
-            <a class="user flex items-center bg-[#000000] rounded-xl px-3 py-2" href="">
-              <div class="img h-10 w-10 bg-red-500 rounded-full"></div>
-              <h2 class="text-2xl ml-5 font-semibold text-[#39FF14]">Atul Reny</h2>
-            </a>
+            <%users.forEach((user)=>{%>
+              <a class="user flex items-center bg-[#000000] rounded-xl px-3 py-2 mb-3" href="/<%=user._id%>">
+                <div class="img h-10 w-10 bg-red-500 rounded-full"></div>
+                <h2 class="text-2xl ml-5 font-semibold text-[#39FF14]"><%=user.username%></h2>
+              </a>
+            <%})%>
           </div>
         </div>
       </div>
-      <div class="w-[45%] ">
+      <div class="w-[45%]  posts ">
         <!-- POST STARTS HERE -->
-        <div class="post my-8  p-5 rounded-2xl py-10 bg-[#000000]">
-          <div class="post-details flex items-center justify-between px-7 ">
-            <div class="flex items-center">
-              <div class="profile-image size-12 rounded-full bg-red-500 mr-5"></div>
-              <h2 class="text-3xl text-white">atulr</h2>
+        <%posts.forEach((post)=>{%>
+          <div class="post my-8  p-5 rounded-2xl py-10 bg-[#000000]">
+            <div class="post-details flex items-center justify-between px-7 ">
+              <div class="flex items-center">
+                <div class="profile-image size-12 rounded-full bg-red-500 mr-5"></div>
+                <h2 class="text-3xl text-white"><%=post.createdBy.username%></h2>
+              </div>
+              <h2 class="text-xl text-slate-400"><%=formatTimeAgo(post.createdAt)%></h2>
+  
             </div>
-            <h2 class="text-xl text-slate-400">2h</h2>
-
+            <hr class="w-[90%] mx-auto my-5 border-[#ccccc]">
+            <div class="px-7">
+              <h1 class="text-3xl font-semibold mb-3 text-[#CCCCCC]"><%=post.title%></h1>
+              <p class="text-xl text-white"><%=post.content%>
+              </p>
+            </div>
           </div>
-          <hr class="w-[90%] mx-auto my-5 border-[#ccccc]">
-          <div class="px-7">
-            <h1 class="text-3xl font-semibold mb-3 text-[#CCCCCC]">Post Title</h1>
-            <p class="text-xl text-white">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint ratione nemo
-              itaque quidem
-              labore
-              recusandae ipsa error quia sapiente, eum ullam quibusdam natus vero quisquam voluptates laudantium
-              officiis distinctio corrupti.
-
-              <br>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit culpa placeat doloremque suscipit
-              omnis animi! Expedita numquam quidem vitae blanditiis excepturi nobis sunt, vel quaerat! Molestiae
-              delectus adipisci deserunt explicabo!
-            </p>
-          </div>
-        </div>
+        <%})%>
         <!-- POST ENDS HERE -->
 
-        <!-- POST STARTS HERE -->
-        <div class="post my-8  p-5 rounded-2xl py-10 bg-[#000000]">
-          <div class="post-details flex items-center justify-between px-7 ">
-            <div class="flex items-center">
-              <div class="profile-image size-12 rounded-full bg-red-500 mr-5"></div>
-              <h2 class="text-3xl text-white">atulr</h2>
-            </div>
-            <h2 class="text-xl text-slate-400">2h</h2>
-
-          </div>
-          <hr class="w-[90%] mx-auto my-5 border-[#ccccc]">
-          <div class="px-7">
-            <h1 class="text-3xl font-semibold mb-3 text-[#CCCCCC]">Post Title</h1>
-            <p class="text-xl text-white">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint ratione nemo
-              itaque quidem
-              labore
-              recusandae ipsa error quia sapiente, eum ullam quibusdam natus vero quisquam voluptates laudantium
-              officiis distinctio corrupti.
-
-              <br>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit culpa placeat doloremque suscipit
-              omnis animi! Expedita numquam quidem vitae blanditiis excepturi nobis sunt, vel quaerat! Molestiae
-              delectus adipisci deserunt explicabo!
-            </p>
-          </div>
-        </div>
-        <!-- POST ENDS HERE -->
+       
       </div>
-      <div class="right-bar flex-1  flex justify-center  p-8 py-10">
-        <div class="sidebar w-full  rounded-xl bg-[#454545] pt-10  px-5">
+      <div class="right-bar flex-1 h-fit flex justify-center  p-8 py-10">
+        <div class="sidebar w-full  rounded-xl bg-[#454545] py-10  px-5">
           <h2 class="text-[#FFA500] text-2xl text-center font-semibold mb-7">
-            Change User
+            Switch User
           </h2>
           <div class="users">
-            <a class="user flex items-center bg-[#000000] rounded-xl px-3 py-2" href="">
-              <div class="img h-10 w-10 bg-red-500 rounded-full"></div>
-              <h2 class="text-2xl ml-5 font-semibold text-[#39FF14]">Atul Reny</h2>
-            </a>
+            <%users.forEach((user)=>{%>
+              <a class="user flex items-center bg-[#000000] rounded-xl px-3 py-2 mb-3" href="/home/<%=user._id%>">
+                <div class="img h-10 w-10 bg-red-500 rounded-full"></div>
+                <h2 class="text-2xl ml-5 font-semibold text-[#39FF14]"><%=user.username%></h2>
+              </a>
+            <%})%>
           </div>
           <a class="add-user w-full flex justify-center mt-10" href="/create-user"><button
               class="bg-[green] p-3 rounded-xl text-lg "><i class="fa-plus fa-solid mr-3"></i>Add User</button></a>
@@ -113,6 +86,36 @@
       </div>
     </div>
   </div>
+
+
+
+
+
+  <%
+  function formatTimeAgo(createdAt) {
+    const currentTime = new Date();
+    const postTime = new Date(createdAt);
+    const timeDifference = Math.abs(currentTime - postTime);
+    const seconds = Math.floor(timeDifference / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+  
+    if (days > 0) {
+      return `${days}d`;
+    } else if (hours > 0) {
+      return `${hours}h`;
+    } else if (minutes > 0) {
+      return `${minutes}m`;
+    } else {
+      return `${seconds}s`;
+    }
+  }
+  
+  // Example usage
+  // const createdAt = '2024-05-08T17:51:42.160+00:00';
+  
+ %>
 </body>
 
 </html>

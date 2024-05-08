@@ -16,10 +16,11 @@
   <body class="bg-[#333333] flex justify-center">
     <div class="mt-20 w-[80%]">
       <h2 class="text-[#CCCCCC] text-center font-semibold text-5xl">
-        Posting as <span class="font-bold text-[#00FFFF]">Atul</span>
+        Posting as <span class="font-bold text-[#00FFFF]"><%=mainUser.username%></span>
       </h2>
       <div class="flex-container flex w-full justify-between">
-        <form class="left-side w-[80%] pt-20" method="post" action="/create-post">
+        <form class="left-side w-[80%] pt-20" method="post" action="/create-post/<%=mainUser._id%>">
+          <!-- TITLE -->
           <label for="title" class="text-3xl text-white">Title :</label>
           <input
             type="text"
@@ -27,6 +28,7 @@
             class="block bg-[#505050] mt-6 rounded-md w-full mb-14  text-white text-3xl p-4"
             placeholder="Enter Title"
           />
+          <!-- CONTENT -->
           <label for="content" class="text-3xl text-white">Content :</label>
           <textarea
             name="content"
@@ -43,10 +45,12 @@
             Change User
           </h2>
           <div class="users">
-            <a class="user flex items-center bg-[#000000] rounded-xl px-3 py-2" href="">
-              <div class="img h-10 w-10 bg-red-500 rounded-full"></div>
-              <h2 class="text-2xl ml-5 font-semibold text-[#39FF14]">Atul Reny</h2>
-            </a>
+            <%users.forEach((user)=>{%>
+              <a class="user flex items-center bg-[#000000] rounded-xl px-3 py-2 mb-3" href="/create-post/<%=user._id%>">
+                <div class="img h-10 w-10 bg-red-500 rounded-full"></div>
+                <h2 class="text-2xl ml-5 font-semibold text-[#39FF14]"><%=user.username%></h2>
+              </a>
+            <%})%>
           </div>
         </div>
       </div>

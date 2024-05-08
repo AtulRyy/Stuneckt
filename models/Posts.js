@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 
+
 const postSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -12,7 +13,7 @@ const postSchema = new mongoose.Schema({
   createdBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    required: true
+    
   },
   createdAt: {
     type: Date,
@@ -20,4 +21,4 @@ const postSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model("Posts", PostSchema)
+module.exports = mongoose.model("Posts", postSchema)

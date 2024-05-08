@@ -23,6 +23,7 @@ app.use(express.urlencoded({extended:false}))
 
 const HomeRoute=require('./routes/homeRoute')
 const CreatePost=require('./routes/createPost')
+const CreateUser=require('./routes/createUser')
 
 // async function createUser(){
 //     const newUser=new User({
@@ -39,10 +40,11 @@ const CreatePost=require('./routes/createPost')
 
 // }
 // createUser();
-
-app.use("/",HomeRoute)
 app.use("/create-post",CreatePost)
+app.use("/create-user",CreateUser)
+app.use("/",HomeRoute)
 
-app.listen(3000,()=>{
-    console.log("listening to port 3000");
+
+app.listen(4000,()=>{
+    console.log("listening to port 4000");
 })
