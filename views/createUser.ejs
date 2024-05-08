@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Post</title>
+    <link rel="stylesheet" href="/static/output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="bg-[#333333] flex justify-center">
+    <div class="mt-20 w-[80%]">
+      <h2 class="text-[#CCCCCC] text-center font-semibold text-5xl">
+        Posting as <span class="font-bold text-[#00FFFF]">Atul</span>
+      </h2>
+      <div class="flex-container flex w-full justify-between">
+        <form class="left-side w-[80%] pt-20" method="post" action="/create-post">
+          <label for="title" class="text-3xl text-white">Title :</label>
+          <input
+            type="text"
+            name="title"
+            class="block bg-[#505050] mt-6 rounded-md w-full mb-14  text-white text-3xl p-4"
+            placeholder="Enter Title"
+          />
+          <label for="content" class="text-3xl text-white">Content :</label>
+          <textarea
+            name="content"
+            id=""
+            placeholder="Type Post Content Here"
+            class="block bg-[#505050] mt-6 rounded-md w-full h-56 text-white text-3xl p-4"
+          ></textarea>
+          <div class="submit mt-20 w-full flex justify-end"><button class="bg-[#1f901f] rounded-xl p-3 text-2xl px-5 font-bold">Post</button></div>
+        </form>
+        <div
+          class="sidebar mt-10 rounded-xl bg-[#454545] pt-10 w-[20%] ml-10 px-5"
+        >
+          <h2 class="text-[#FFA500] text-2xl text-center font-semibold mb-7">
+            Change User
+          </h2>
+          <div class="users">
+            <a class="user flex items-center bg-[#000000] rounded-xl px-3 py-2" href="">
+              <div class="img h-10 w-10 bg-red-500 rounded-full"></div>
+              <h2 class="text-2xl ml-5 font-semibold text-[#39FF14]">Atul Reny</h2>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </body>
+</html>
