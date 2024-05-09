@@ -45,6 +45,6 @@ app.use("/create-user",CreateUser)
 app.use("/",HomeRoute)
 
 
-app.listen(4000,()=>{
-    console.log("listening to port 4000");
+app.listen(3000,()=>{
+    console.log("listening to port 3000");
 })
